@@ -3,7 +3,7 @@ FHEM4PEBBLE
 
 Use your FHEM Switches (and hopefully some coming-soon-features, too) on your Pebble Smartwatch.
 
-To use this sources, load them to your Pebble SDK or just the Cloud Solution "CloudPebble" on https://cloudpebble.net/ide/
+To use this sources, load them (app.js) to your Pebble SDK or just the Cloud Solution "CloudPebble" on https://cloudpebble.net/ide/
 
 Then change the FHEM Host settings to your own ones.
 
