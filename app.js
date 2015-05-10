@@ -4,8 +4,6 @@
 
 //FHEM HOST SETTINGS HERE
 var scheme = 'http';
-var user   = 'myusername';
-var passwd = 'mypassword';
 var host   = '192.168.0.1';
 var port   = '8083';
 
@@ -45,7 +43,7 @@ var menu = new UI.Menu({
 
 ajax(
   {
-    url: scheme + '://' + user + ':' + passwd  + '@' + host  + ':' + port  + '/fhem?cmd=jsonlist&XHR=1',
+    url: scheme + '://' + host  + ':' + port  + '/fhem?cmd=jsonlist&XHR=1',
     type: 'json'
     //headers: {'Authorization': 'Basic DEMOAUTHHERE000000=='}
   },
@@ -68,7 +66,7 @@ ajax(
             state_next: myNextState,
             state_current: aDevices[i].STATE,
             switch_name:  aDevices[i].NAME,
-            switch_url: scheme + '://' + user + ':' + passwd  + '@' + host  + ':' + port  + '/fhem?XHR=1&cmd.' + aDevices[i].NAME + '=set%20' + aDevices[i].NAME + '%20' + myNextState
+            switch_url: scheme + '://' + host  + ':' + port  + '/fhem?XHR=1&cmd.' + aDevices[i].NAME + '=set%20' + aDevices[i].NAME + '%20' + myNextState
           });
           console.log('Switch found:' + aDevices[i].ATTR.alias);
           myMenuPos++;
@@ -93,7 +91,7 @@ menu.on('select', function(e) {
       subtitle: 'State: ' + e.item.state_next,
       state_current: e.item.state_next,
       state_next: e.item.state_current,
-      switch_url: scheme + '://' + user + ':' + passwd  + '@' + host  + ':' + port  + '/fhem?XHR=1&cmd.' + e.item.switch_name + '=set%20' + e.item.switch_name + '%20' + e.item.state_current
+      switch_url: scheme + '://' + host  + ':' + port  + '/fhem?XHR=1&cmd.' + e.item.switch_name + '=set%20' + e.item.switch_name + '%20' + e.item.state_current
   });
 });
 
