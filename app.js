@@ -56,12 +56,12 @@ ajax(
     var aDevices = data.Results[2].devices;
     var myMenuPos = 0;
     for(var i = 0; i < aDevices.length; i++) {
-      if(aDevices[i].ATTR.subType == 'switch')
+      if(aDevices[i].ATTR.subType === 'switch')
         {
           var myAlias = aDevices[i].ATTR.alias;
           var myShorterAlias = myAlias.replace('Schalter: ', '');
           var myNextState = 'on';
-          if (aDevices[i].STATE=='on') myNextState = 'off';
+          if (aDevices[i].STATE==='on') myNextState = 'off';
           menu.item(0, myMenuPos, {
             title: myShorterAlias,
             subtitle: 'State:' +  aDevices[i].STATE,
